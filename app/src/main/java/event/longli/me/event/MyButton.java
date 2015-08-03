@@ -75,7 +75,7 @@ public class MyButton extends Button {
                 break;
         }
         boolean value = super.onTouchEvent(event);
-        return false;
+        return true;
     }
 
     @Override
