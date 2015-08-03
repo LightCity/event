@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
         MyButton myButton = (MyButton) findViewById(R.id.btn_test);
         myButton.setOnTouchListener(new View.OnTouchListener() {
             private String TAG = "btn_test.OnTouchListener";
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.w(TAG, "btn_test.onTouch");
@@ -33,6 +34,7 @@ public class MainActivity extends Activity {
         MyLinearLayout ll_outer = (MyLinearLayout) findViewById(R.id.ll_outer);
         ll_outer.setOnTouchListener(new View.OnTouchListener() {
             private String TAG = "ll_outer.OnTouchListener";
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.w(TAG, "onTouch");
@@ -42,6 +44,7 @@ public class MainActivity extends Activity {
         MyLinearLayout ll_inner = (MyLinearLayout) findViewById(R.id.ll_inner);
         ll_inner.setOnTouchListener(new View.OnTouchListener() {
             private String TAG = "ll_inner.OnTouchListener";
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.w(TAG, "onTouch");
@@ -50,34 +53,33 @@ public class MainActivity extends Activity {
         });
     }
 
+//    //======================================================
 //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
+//    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
+//        return super.dispatchPopulateAccessibilityEvent(event);
 //    }
 //
 //    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        return id == R.id.action_settings || super.onOptionsItemSelected(item);
+//    public boolean dispatchGenericMotionEvent(MotionEvent ev) {
+//        return super.dispatchGenericMotionEvent(ev);
 //    }
-
-    //======================================================
-    @Override
-    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
-        return super.dispatchPopulateAccessibilityEvent(event);
-    }
-
-    @Override
-    public boolean dispatchGenericMotionEvent(MotionEvent ev) {
-        return super.dispatchGenericMotionEvent(ev);
-    }
-
-    @Override
-    public boolean dispatchTrackballEvent(MotionEvent ev) {
-        return super.dispatchTrackballEvent(ev);
-    }
-
+//
+//    @Override
+//    public boolean dispatchTrackballEvent(MotionEvent ev) {
+//        return super.dispatchTrackballEvent(ev);
+//    }
+//
+//    @Override
+//    public boolean dispatchKeyShortcutEvent(KeyEvent event) {
+//        return super.dispatchKeyShortcutEvent(event);
+//    }
+//
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        Log.i(TAG, "dispatchKeyEvent");
+//        return super.dispatchKeyEvent(event);
+//    }
+////
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         Log.i(TAG, "dispatchTouchEvent");
@@ -88,22 +90,11 @@ public class MainActivity extends Activity {
         return value;
     }
 
-    @Override
-    public boolean dispatchKeyShortcutEvent(KeyEvent event) {
-        return super.dispatchKeyShortcutEvent(event);
-    }
-
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        Log.i(TAG, "dispatchKeyEvent");
-        return super.dispatchKeyEvent(event);
-    }
-
-    //======================================================
+//    //======================================================
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        //Log.i(TAG, "onTouchEvent");
+        Log.i(TAG, "onTouchEvent");
         final int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_CANCEL:
@@ -151,20 +142,20 @@ public class MainActivity extends Activity {
         boolean value = super.onTouchEvent(event);
         return false;
     }
-
-    @Override
-    public boolean onTrackballEvent(MotionEvent event) {
-        return super.onTrackballEvent(event);
-    }
-
-    @Override
-    public boolean onGenericMotionEvent(MotionEvent event) {
-        return super.onGenericMotionEvent(event);
-    }
-
-    @Override
-    public void takeKeyEvents(boolean get) {
-        Log.i(TAG, "takeKeyEvents");
-        super.takeKeyEvents(get);
-    }
+//
+//    @Override
+//    public boolean onTrackballEvent(MotionEvent event) {
+//        return super.onTrackballEvent(event);
+//    }
+//
+//    @Override
+//    public boolean onGenericMotionEvent(MotionEvent event) {
+//        return super.onGenericMotionEvent(event);
+//    }
+//
+//    @Override
+//    public void takeKeyEvents(boolean get) {
+//        Log.i(TAG, "takeKeyEvents");
+//        super.takeKeyEvents(get);
+//    }
 }
