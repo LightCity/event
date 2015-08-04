@@ -35,6 +35,8 @@ public class MyButton extends Button {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //Log.w(TAG + " - " + getId(), "onTouchEvent");
+        final float newRawX = event.getRawX();
+        final float newRawY = event.getRawY();
 
         int action = event.getAction();
 
@@ -46,8 +48,6 @@ public class MyButton extends Button {
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.w(TAG + " - " + getId(), "onTouchEvent ACTION_MOVE");
-                final float newRawX = event.getRawX();
-                final float newRawY = event.getRawY();
 
                 float xInterval = newRawX - eventOldX;
                 float yInterval = newRawY - eventOldY;
@@ -64,9 +64,6 @@ public class MyButton extends Button {
 
                 this.layout(left, top, right, bottom);
 
-                eventOldX = newRawX;
-                eventOldY = newRawY;
-
                 break;
             case MotionEvent.ACTION_UP:
                 Log.w(TAG + " - " + getId(), "onTouchEvent ACTION_UP");
@@ -74,6 +71,10 @@ public class MyButton extends Button {
             default:
                 break;
         }
+
+        eventOldX = newRawX;
+        eventOldY = newRawY;
+
         boolean value = super.onTouchEvent(event);
         return true;
     }

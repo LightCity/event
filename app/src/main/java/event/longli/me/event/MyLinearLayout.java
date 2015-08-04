@@ -50,6 +50,10 @@ public class MyLinearLayout extends LinearLayout {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //Log.e(TAG + " - " +  getStrId(), "onTouchEvent");
+
+        final float newRawX = event.getRawX();
+        final float newRawY = event.getRawY();
+
         int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
@@ -57,26 +61,23 @@ public class MyLinearLayout extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.e(TAG + " - " +  getStrId(), "onTouchEvent ACTION_MOVE");
-                final float newRawX = event.getRawX();
-                final float newRawY = event.getRawY();
+
+                final float xxx = event.getX();
 
                 float xInterval = newRawX - eventOldX;
                 float yInterval = newRawY - eventOldY;
-
-                int left    = (int) ( getLeft() + xInterval );
-                int top     = (int) ( getTop() + yInterval );
-                int right   = left + getWidth();
-                int bottom  = top + getHeight();
 
                 int oldLeft = getLeft();
                 int oldTop = getTop();
                 int oldRight = getRight();
                 int oldBottom = getBottom();
 
-                this.layout(left, top, right, bottom);
+                int left    = (int) ( oldLeft + xInterval );
+                int top     = (int) ( oldTop + yInterval );
+                int right   = left + getWidth();
+                int bottom  = top + getHeight();
 
-                eventOldX = newRawX;
-                eventOldY = newRawY;
+                this.layout(left, top, right, bottom);
                 break;
             case MotionEvent.ACTION_UP:
                 Log.e(TAG + " - " +  getStrId(), "onTouchEvent ACTION_UP");
@@ -85,8 +86,12 @@ public class MyLinearLayout extends LinearLayout {
             default:
                 break;
         }
+
+        eventOldX = newRawX;
+        eventOldY = newRawY;
+
         boolean value = super.onTouchEvent(event);
-        return value;
+        return true;
     }
 
     @Override
