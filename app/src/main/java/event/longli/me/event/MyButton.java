@@ -76,7 +76,7 @@ public class MyButton extends Button {
         eventOldY = newRawY;
 
         boolean value = super.onTouchEvent(event);
-        return true;
+        return true; // 必须要返回true，否则ACTION_DOWN的后续事件不会到达
     }
 
     @Override
