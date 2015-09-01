@@ -34,7 +34,7 @@ public class MyButton extends Button {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        //Log.w(TAG + " - " + getId(), "onTouchEvent");
+        //Log.e(TAG + " - " + getId(), "onTouchEvent");
         final float newRawX = event.getRawX();
         final float newRawY = event.getRawY();
 
@@ -42,12 +42,12 @@ public class MyButton extends Button {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.w(TAG + " - " + getId(), "onTouchEvent ACTION_DOWN");
+                Log.e(TAG + " - " + getId(), "onTouchEvent ACTION_DOWN");
                 eventOldX = event.getRawX();
                 eventOldY = event.getRawY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.w(TAG + " - " + getId(), "onTouchEvent ACTION_MOVE");
+                Log.e(TAG + " - " + getId(), "onTouchEvent ACTION_MOVE");
 
                 float xInterval = newRawX - eventOldX;
                 float yInterval = newRawY - eventOldY;
@@ -66,7 +66,7 @@ public class MyButton extends Button {
 
                 break;
             case MotionEvent.ACTION_UP:
-                Log.w(TAG + " - " + getId(), "onTouchEvent ACTION_UP");
+                Log.e(TAG + " - " + getId(), "onTouchEvent ACTION_UP");
                 break;
             default:
                 break;
@@ -81,19 +81,19 @@ public class MyButton extends Button {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        //Log.w(TAG + " - " + getId(), "dispatchTouchEvent");
+        //Log.e(TAG + " - " + getId(), "dispatchTouchEvent");
 
         int action = event.getAction();
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.w(TAG + " - " + getId(), "dispatchTouchEvent ACTION_DOWN");
+                Log.e(TAG + " - " + getId(), "dispatchTouchEvent ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.w(TAG + " - " + getId(), "dispatchTouchEvent ACTION_MOVE");
+                Log.e(TAG + " - " + getId(), "dispatchTouchEvent ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.w(TAG + " - " + getId(), "dispatchTouchEvent ACTION_UP");
+                Log.e(TAG + " - " + getId(), "dispatchTouchEvent ACTION_UP");
                 break;
 
             default:

@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.w(TAG, "btn_test.onTouch");
+                Log.e(TAG, "btn_test.onTouch");
                 boolean value = false;
                 return value;
             }
@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.w(TAG, "onTouch");
+                Log.e(TAG, "onTouch");
                 return false;
             }
         });
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.w(TAG, "onTouch");
+                Log.e(TAG, "onTouch");
                 return false;
             }
         });
@@ -76,16 +76,13 @@ public class MainActivity extends Activity {
 //
 //    @Override
 //    public boolean dispatchKeyEvent(KeyEvent event) {
-//        Log.i(TAG, "dispatchKeyEvent");
+//        Log.e(TAG, "dispatchKeyEvent");
 //        return super.dispatchKeyEvent(event);
 //    }
 ////
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i(TAG, "dispatchTouchEvent");
-        if (ev.getAction() == MotionEvent.ACTION_MOVE) {
-            Log.i(TAG, "dispatchTouchEvent");
-        }
+        Log.e(TAG, "dispatchTouchEvent - " + EventUtil.eventName(ev));
         boolean value = super.dispatchTouchEvent(ev);
         return value;
     }
@@ -94,47 +91,47 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.i(TAG, "onTouchEvent");
+        Log.e(TAG, "onTouchEvent");
         final int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_CANCEL:
-                Log.w(TAG, "onTouchEvent - ACTION_CANCEL");
+                Log.e(TAG, "onTouchEvent - ACTION_CANCEL");
                 break;
             case MotionEvent.ACTION_DOWN:
-                Log.w(TAG, "onTouchEvent - ACTION_DOWN");
+                Log.e(TAG, "onTouchEvent - ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_HOVER_ENTER:
-                Log.w(TAG, "onTouchEvent - ACTION_HOVER_ENTER");
+                Log.e(TAG, "onTouchEvent - ACTION_HOVER_ENTER");
                 break;
             case MotionEvent.ACTION_HOVER_EXIT:
-                Log.w(TAG, "onTouchEvent - ACTION_HOVER_EXIT");
+                Log.e(TAG, "onTouchEvent - ACTION_HOVER_EXIT");
                 break;
             case MotionEvent.ACTION_HOVER_MOVE:
-                Log.w(TAG, "onTouchEvent - ACTION_HOVER_MOVE");
+                Log.e(TAG, "onTouchEvent - ACTION_HOVER_MOVE");
                 break;
             case MotionEvent.ACTION_MASK:
-                Log.w(TAG, "onTouchEvent - ACTION_MASK");
+                Log.e(TAG, "onTouchEvent - ACTION_MASK");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.w(TAG, "onTouchEvent - ACTION_MOVE");
+                Log.e(TAG, "onTouchEvent - ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_OUTSIDE:
-                Log.w(TAG, "onTouchEvent - ACTION_OUTSIDE");
+                Log.e(TAG, "onTouchEvent - ACTION_OUTSIDE");
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
-                Log.w(TAG, "onTouchEvent - ACTION_POINTER_DOWN");
+                Log.e(TAG, "onTouchEvent - ACTION_POINTER_DOWN");
                 break;
             case MotionEvent.ACTION_POINTER_INDEX_MASK:
-                Log.w(TAG, "onTouchEvent - ACTION_POINTER_INDEX_MASK");
+                Log.e(TAG, "onTouchEvent - ACTION_POINTER_INDEX_MASK");
                 break;
             case MotionEvent.ACTION_POINTER_INDEX_SHIFT:
-                Log.w(TAG, "onTouchEvent - ACTION_POINTER_INDEX_SHIFT");
+                Log.e(TAG, "onTouchEvent - ACTION_POINTER_INDEX_SHIFT");
                 break;
             case MotionEvent.ACTION_POINTER_UP:
-                Log.w(TAG, "onTouchEvent - ACTION_POINTER_UP");
+                Log.e(TAG, "onTouchEvent - ACTION_POINTER_UP");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.w(TAG, "onTouchEvent - ACTION_UP");
+                Log.e(TAG, "onTouchEvent - ACTION_UP");
                 break;
             default:
                 break;
@@ -155,7 +152,7 @@ public class MainActivity extends Activity {
 //
 //    @Override
 //    public void takeKeyEvents(boolean get) {
-//        Log.i(TAG, "takeKeyEvents");
+//        Log.e(TAG, "takeKeyEvents");
 //        super.takeKeyEvents(get);
 //    }
 }
