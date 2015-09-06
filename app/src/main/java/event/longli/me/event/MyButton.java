@@ -13,6 +13,12 @@ public class MyButton extends Button {
 
     public MyButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e(TAG, EventUtil.getNameOfId(getId()) + " - " + "OnClickListener.onClick");
+            }
+        });
     }
 
     private float eventOldX;
@@ -43,12 +49,12 @@ public class MyButton extends Button {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(TAG + " - " + idName, "onTouchEvent ACTION_DOWN");
+                Log.e(TAG, idName + " - onTouchEvent ACTION_DOWN");
                 eventOldX = event.getRawX();
                 eventOldY = event.getRawY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e(TAG + " - " + idName, "onTouchEvent ACTION_MOVE");
+                Log.e(TAG, idName + " - onTouchEvent ACTION_MOVE");
 
                 float xInterval = newRawX - eventOldX;
                 float yInterval = newRawY - eventOldY;
@@ -67,7 +73,7 @@ public class MyButton extends Button {
 
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e(TAG + " - " + idName, "onTouchEvent ACTION_UP");
+                Log.e(TAG, idName + " - onTouchEvent ACTION_UP");
                 break;
             default:
                 break;
@@ -89,13 +95,13 @@ public class MyButton extends Button {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(TAG + " - " + idName, "dispatchTouchEvent ACTION_DOWN");
+                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e(TAG + " - " + idName, "dispatchTouchEvent ACTION_MOVE");
+                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e(TAG + " - " + idName, "dispatchTouchEvent ACTION_UP");
+                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_UP");
                 break;
 
             default:

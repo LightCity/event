@@ -21,16 +21,16 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         MyButton myButton = (MyButton) findViewById(R.id.btn_test);
-        myButton.setOnTouchListener(new View.OnTouchListener() {
-            private String TAG = "btn_test.OnTouchListener";
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Log.e(TAG, "btn_test.onTouch");
-                boolean value = false;
-                return value;
-            }
-        });
+//        myButton.setOnTouchListener(new View.OnTouchListener() {
+//            private String TAG = "btn_test.OnTouchListener";
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                Log.e(TAG, "btn_test.onTouch");
+//                boolean value = false;
+//                return value;
+//            }
+//        });
         MyLinearLayout ll_outer = (MyLinearLayout) findViewById(R.id.ll_outer);
         ll_outer.setOnTouchListener(new View.OnTouchListener() {
             private String TAG = "ll_outer.OnTouchListener";
