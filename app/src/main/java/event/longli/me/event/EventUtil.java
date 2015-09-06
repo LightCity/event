@@ -3,7 +3,28 @@ package event.longli.me.event;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import java.lang.reflect.Field;
+
 public class EventUtil {
+    public static String getNameOfId(int id) {
+        Class<R.id> clazz = R.id.class;
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field f : fields) {
+            f.setAccessible(true);
+            try {
+                int anInt = f.getInt(clazz);
+                if (anInt == id) {
+                    return f.getName();
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        return "" + id;
+    }
+
     public static String eventName(MotionEvent e) {
         int action = e.getAction();
         switch (action) {

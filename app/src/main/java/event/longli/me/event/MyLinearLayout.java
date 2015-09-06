@@ -40,11 +40,17 @@ public class MyLinearLayout extends LinearLayout {
     
     private String getStrId() {
         int id = getId();
-        return id == R.id.ll_outer
-                ?
-                "ll_outer"
-                :
-                (id == R.id.ll_inner ? "ll_inner" : "" + id );
+
+        switch (id) {
+            case R.id.ll_outer:
+                return "ll_outer";
+            case R.id.ll_inner:
+                return "ll_inner";
+            case R.id.ll_black:
+                return "ll_black";
+            default:
+                return EventUtil.getNameOfId(id);
+        }
     }
 
     @Override

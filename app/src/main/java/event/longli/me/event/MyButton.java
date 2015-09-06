@@ -39,15 +39,16 @@ public class MyButton extends Button {
         final float newRawY = event.getRawY();
 
         int action = event.getAction();
+        String idName = EventUtil.getNameOfId(getId());
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(TAG + " - " + getId(), "onTouchEvent ACTION_DOWN");
+                Log.e(TAG + " - " + idName, "onTouchEvent ACTION_DOWN");
                 eventOldX = event.getRawX();
                 eventOldY = event.getRawY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e(TAG + " - " + getId(), "onTouchEvent ACTION_MOVE");
+                Log.e(TAG + " - " + idName, "onTouchEvent ACTION_MOVE");
 
                 float xInterval = newRawX - eventOldX;
                 float yInterval = newRawY - eventOldY;
@@ -66,7 +67,7 @@ public class MyButton extends Button {
 
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e(TAG + " - " + getId(), "onTouchEvent ACTION_UP");
+                Log.e(TAG + " - " + idName, "onTouchEvent ACTION_UP");
                 break;
             default:
                 break;
@@ -84,16 +85,17 @@ public class MyButton extends Button {
         //Log.e(TAG + " - " + getId(), "dispatchTouchEvent");
 
         int action = event.getAction();
+        String idName = EventUtil.getNameOfId(getId());
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(TAG + " - " + getId(), "dispatchTouchEvent ACTION_DOWN");
+                Log.e(TAG + " - " + idName, "dispatchTouchEvent ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e(TAG + " - " + getId(), "dispatchTouchEvent ACTION_MOVE");
+                Log.e(TAG + " - " + idName, "dispatchTouchEvent ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e(TAG + " - " + getId(), "dispatchTouchEvent ACTION_UP");
+                Log.e(TAG + " - " + idName, "dispatchTouchEvent ACTION_UP");
                 break;
 
             default:
