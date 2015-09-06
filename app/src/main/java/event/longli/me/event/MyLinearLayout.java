@@ -21,6 +21,13 @@ public class MyLinearLayout extends LinearLayout {
                 Log.e(TAG, getStrId() + " - OnClickListener.onClick");
             }
         });
+        this.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.e(TAG, getStrId() + " - onTouch");
+                return false;
+            }
+        });
     }
 
     @Override
@@ -104,7 +111,7 @@ public class MyLinearLayout extends LinearLayout {
         eventOldY = newRawY;
 
         boolean value = super.onTouchEvent(event);
-        return true;
+        return value;
     }
 
     @Override
