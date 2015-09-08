@@ -7,16 +7,27 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MyButton extends Button {
     private static final String TAG = MyButton.class.getSimpleName();
 
-    public MyButton(Context context, AttributeSet attrs) {
+
+
+    public MyButton(final Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.e(TAG, EventUtil.getNameOfId(getId()) + " - " + "OnClickListener.onClick");
+                Toast.makeText(context, "width=" + getWidth() + ", height=" + getHeight(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        this.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.e(TAG, EventUtil.getNameOfId(getId()) + " - OnTouchListener.onTouch");
+                return false;
             }
         });
     }
@@ -83,7 +94,7 @@ public class MyButton extends Button {
         eventOldY = newRawY;
 
         boolean value = super.onTouchEvent(event);
-        return true; // 必须要返回true，否则ACTION_DOWN的后续事件不会到达
+        return value; // 必须要返回true，否则ACTION_DOWN的后续事件不会到达
     }
 
     @Override

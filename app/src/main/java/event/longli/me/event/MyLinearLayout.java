@@ -24,7 +24,7 @@ public class MyLinearLayout extends LinearLayout {
         this.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.e(TAG, getStrId() + " - onTouch");
+                Log.e(TAG, getStrId() + " - OnTouchListener.onTouch");
                 return false;
             }
         });
@@ -49,22 +49,28 @@ public class MyLinearLayout extends LinearLayout {
                 break;
         }
         boolean value = super.dispatchTouchEvent(ev);
-        return value;
+        return value; // todo 返回false，子控件无法接收事件
     }
-    
-    private String getStrId() {
-        int id = getId();
 
-        switch (id) {
-            case R.id.ll_outer:
-                return "ll_outer";
-            case R.id.ll_inner:
-                return "ll_inner";
-            case R.id.ll_black:
-                return "ll_black";
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        //Log.e(TAG + " - " +  getStrId(), "onInterceptTouchEvent");
+        int action = ev.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_UP");
+                break;
             default:
-                return EventUtil.getNameOfId(id);
+                break;
         }
+        boolean value = super.onInterceptTouchEvent(ev);
+        return value;
     }
 
     @Override
@@ -115,29 +121,23 @@ public class MyLinearLayout extends LinearLayout {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        //Log.e(TAG + " - " +  getStrId(), "onInterceptTouchEvent");
-        int action = ev.getAction();
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_DOWN");
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_MOVE");
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_UP");
-                break;
-            default:
-                break;
-        }
-        boolean value = super.onInterceptTouchEvent(ev);
-        return value;
-    }
-
-    @Override
     public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
         Log.e(TAG, getStrId() + " - requestDisallowInterceptTouchEvent");
         super.requestDisallowInterceptTouchEvent(disallowIntercept);
+    }
+
+    private String getStrId() {
+        int id = getId();
+
+        switch (id) {
+            case R.id.ll_outer:
+                return "ll_outer";
+            case R.id.ll_inner:
+                return "ll_inner";
+            case R.id.ll_black:
+                return "ll_black";
+            default:
+                return EventUtil.getNameOfId(id);
+        }
     }
 }
