@@ -6,6 +6,19 @@ import android.view.MotionEvent;
 import java.lang.reflect.Field;
 
 public class EventUtil {
+    public static void logStackTrace(String tag, MotionEvent e) {
+        for (StackTraceElement ele  : Thread.currentThread().getStackTrace()) {
+            Boolean isFull = false;
+            if (!isFull) {
+                if (ele.toString().indexOf("longli") > 0) {
+                    Log.e(tag, eventName(e) + " == " + ele.toString());
+                }
+            } else {
+                Log.e(tag, eventName(e) + " == " + ele.toString());
+            }
+        }
+    }
+
     public static String getNameOfId(int id) {
         Class<R.id> clazz = R.id.class;
         Field[] fields = clazz.getDeclaredFields();

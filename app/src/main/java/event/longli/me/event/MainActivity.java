@@ -18,30 +18,29 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        final MyButton btn = (MyButton) findViewById(R.id.btn_test);
 
-        btn.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                observerWidth = btn.getWidth();
-                observerHeight = btn.getHeight();
-                Log.e(TAG, "observerWidth=" + observerWidth + ", observerHeight=" + observerHeight);
-            }
-        });
-
-        int measuredHeight = btn.getMeasuredHeight();
-        int measuredWidth = btn.getMeasuredWidth();
-        int measuredHeightAndState = btn.getMeasuredHeightAndState();
-        int measuredWidthAndState = btn.getMeasuredWidthAndState();
-        btn.measure(View.MeasureSpec.EXACTLY, View.MeasureSpec.EXACTLY);
-        int measuredHeight_2 = btn.getMeasuredHeight();
-        int measuredWidth_2 = btn.getMeasuredWidth();
-        int measuredHeightAndState_2 = btn.getMeasuredHeightAndState();
-        int measuredWidthAndState_2 = btn.getMeasuredWidthAndState();
-
-        Log.e(TAG, "before measure: measuredHeight=" + measuredHeight + ", measuredWidth=" + measuredWidth + ", measuredHeightAndState=" + measuredHeightAndState + ", measuredWidthAndState" + measuredWidthAndState);
-        Log.e(TAG, "after  measure: measuredHeight=" + measuredHeight_2 + ", measuredWidth=" + measuredWidth_2 + ", measuredHeightAndState=" + measuredHeightAndState_2 + ", measuredWidthAndState" + measuredWidthAndState_2);
+//        final MyButton btn = (MyButton) findViewById(R.id.btn_test);
+//        btn.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//            @Override
+//            public void onGlobalLayout() {
+//                observerWidth = btn.getWidth();
+//                observerHeight = btn.getHeight();
+//                Log.e(TAG, "observerWidth=" + observerWidth + ", observerHeight=" + observerHeight);
+//            }
+//        });
+//
+//        int measuredHeight = btn.getMeasuredHeight();
+//        int measuredWidth = btn.getMeasuredWidth();
+//        int measuredHeightAndState = btn.getMeasuredHeightAndState();
+//        int measuredWidthAndState = btn.getMeasuredWidthAndState();
+//        btn.measure(View.MeasureSpec.EXACTLY, View.MeasureSpec.EXACTLY);
+//        int measuredHeight_2 = btn.getMeasuredHeight();
+//        int measuredWidth_2 = btn.getMeasuredWidth();
+//        int measuredHeightAndState_2 = btn.getMeasuredHeightAndState();
+//        int measuredWidthAndState_2 = btn.getMeasuredWidthAndState();
+//
+//        Log.e(TAG, "before measure: measuredHeight=" + measuredHeight + ", measuredWidth=" + measuredWidth + ", measuredHeightAndState=" + measuredHeightAndState + ", measuredWidthAndState" + measuredWidthAndState);
+//        Log.e(TAG, "after  measure: measuredHeight=" + measuredHeight_2 + ", measuredWidth=" + measuredWidth_2 + ", measuredHeightAndState=" + measuredHeightAndState_2 + ", measuredWidthAndState" + measuredWidthAndState_2);
 
 //        MyButton myButton = (MyButton) findViewById(R.id.btn_test);
 //        myButton.setOnTouchListener(new View.OnTouchListener() {
@@ -160,7 +159,7 @@ public class MainActivity extends Activity {
                 break;
         }
         boolean value = super.onTouchEvent(event);
-        return false;
+        return value;
     }
 
 

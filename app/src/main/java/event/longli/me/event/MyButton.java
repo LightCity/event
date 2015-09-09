@@ -27,7 +27,8 @@ public class MyButton extends Button {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.e(TAG, EventUtil.getNameOfId(getId()) + " - OnTouchListener.onTouch");
-                return false;
+                boolean value = false;
+                return value;
             }
         });
     }
@@ -77,6 +78,7 @@ public class MyButton extends Button {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //Log.e(TAG + " - " + getId(), "onTouchEvent");
+        EventUtil.logStackTrace(TAG, event);
         final float newRawX = event.getRawX();
         final float newRawY = event.getRawY();
 
@@ -125,6 +127,7 @@ public class MyButton extends Button {
             if (str.indexOf("longli") > 0)
                 Log.e(TAG, "======== " + element.toString());
         }
+        value = true;
         return value; // 必须要返回true，否则ACTION_DOWN的后续事件不会到达
     }
 }

@@ -25,7 +25,8 @@ public class MyLinearLayout extends LinearLayout {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.e(TAG, getStrId() + " - OnTouchListener.onTouch");
-                return false;
+                boolean value = false;
+                return value;
             }
         });
     }
@@ -49,7 +50,7 @@ public class MyLinearLayout extends LinearLayout {
                 break;
         }
         boolean value = super.dispatchTouchEvent(ev);
-        return value; // todo 返回false，子控件无法接收事件
+        return value;
     }
 
     @Override
@@ -70,6 +71,7 @@ public class MyLinearLayout extends LinearLayout {
                 break;
         }
         boolean value = super.onInterceptTouchEvent(ev);
+        value = true;
         return value;
     }
 
