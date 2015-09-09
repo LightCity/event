@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 public class MyLinearLayout extends LinearLayout {
     private static final String TAG = MyLinearLayout.class.getSimpleName();
 
-    private float eventOldX;
-    private float eventOldY;
+//    private float eventOldX;
+//    private float eventOldY;
 
     public MyLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -33,90 +33,45 @@ public class MyLinearLayout extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        //Log.e(TAG + " - " + getStrId(), "dispatchTouchEvent");
-        int action = ev.getAction();
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                Log.e(TAG, getStrId() + " - dispatchTouchEvent ACTION_DOWN");
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e(TAG, getStrId() + " - dispatchTouchEvent ACTION_MOVE");
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e(TAG, getStrId() + " - dispatchTouchEvent ACTION_UP");
-                break;
-
-            default:
-                break;
-        }
+        Log.e(TAG, getStrId() + " - dispatchTouchEvent " + EventUtil.eventName(ev));
         boolean value = super.dispatchTouchEvent(ev);
         return value;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        //Log.e(TAG + " - " +  getStrId(), "onInterceptTouchEvent");
-        int action = ev.getAction();
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_DOWN");
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_MOVE");
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e(TAG  , getStrId() + " - onInterceptTouchEvent ACTION_UP");
-                break;
-            default:
-                break;
-        }
+        Log.e(TAG  , getStrId() + " - onInterceptTouchEvent " + EventUtil.eventName(ev));
         boolean value = super.onInterceptTouchEvent(ev);
         return value;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        //Log.e(TAG + " - " +  getStrId(), "onTouchEvent");
-
-        final float newRawX = event.getRawX();
-        final float newRawY = event.getRawY();
-
-        int action = event.getAction();
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                Log.e(TAG, getStrId() + " - onTouchEvent ACTION_DOWN");
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e(TAG,  getStrId() + " - onTouchEvent ACTION_MOVE");
-
-                final float xxx = event.getX();
-
-                float xInterval = newRawX - eventOldX;
-                float yInterval = newRawY - eventOldY;
-
-                int oldLeft = getLeft();
-                int oldTop = getTop();
-                int oldRight = getRight();
-                int oldBottom = getBottom();
-
-                int left    = (int) ( oldLeft + xInterval );
-                int top     = (int) ( oldTop + yInterval );
-                int right   = left + getWidth();
-                int bottom  = top + getHeight();
-
-                this.layout(left, top, right, bottom);
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e(TAG, getStrId() +  " - onTouchEvent ACTION_UP");
-                break;
-
-            default:
-                break;
-        }
-
-        eventOldX = newRawX;
-        eventOldY = newRawY;
-
+//        final float newRawX = event.getRawX();
+//        final float newRawY = event.getRawY();
+//
+//        int action = event.getAction();
+//        switch (action) {
+//            case MotionEvent.ACTION_MOVE:
+//                Log.e(TAG,  getStrId() + " - onTouchEvent ACTION_MOVE");
+//                float xInterval = newRawX - eventOldX;
+//                float yInterval = newRawY - eventOldY;
+//                int oldLeft = getLeft();
+//                int oldTop = getTop();
+//                int oldRight = getRight();
+//                int oldBottom = getBottom();
+//                int left    = (int) ( oldLeft + xInterval );
+//                int top     = (int) ( oldTop + yInterval );
+//                int right   = left + getWidth();
+//                int bottom  = top + getHeight();
+//                this.layout(left, top, right, bottom);
+//                break;
+//            default:
+//                break;
+//        }
+//        eventOldX = newRawX;
+//        eventOldY = newRawY;
+        Log.e(TAG, getStrId() +  " - onTouchEvent " + EventUtil.eventName(event));
         boolean value = super.onTouchEvent(event);
         return value;
     }
