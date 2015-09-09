@@ -71,7 +71,6 @@ public class MyLinearLayout extends LinearLayout {
                 break;
         }
         boolean value = super.onInterceptTouchEvent(ev);
-        value = true;
         return value;
     }
 

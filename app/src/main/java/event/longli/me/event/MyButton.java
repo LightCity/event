@@ -127,7 +127,6 @@ public class MyButton extends Button {
             if (str.indexOf("longli") > 0)
                 Log.e(TAG, "======== " + element.toString());
         }
-        value = true;
         return value; // 必须要返回true，否则ACTION_DOWN的后续事件不会到达
     }
 }
