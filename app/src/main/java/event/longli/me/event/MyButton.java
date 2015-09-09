@@ -50,6 +50,31 @@ public class MyButton extends Button {
 //    }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        //Log.e(TAG + " - " + getId(), "dispatchTouchEvent");
+
+        int action = event.getAction();
+        String idName = EventUtil.getNameOfId(getId());
+
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_UP");
+                break;
+
+            default:
+                break;
+        }
+        boolean value = super.dispatchTouchEvent(event);
+        return value;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         //Log.e(TAG + " - " + getId(), "onTouchEvent");
         final float newRawX = event.getRawX();
@@ -94,31 +119,12 @@ public class MyButton extends Button {
         eventOldY = newRawY;
 
         boolean value = super.onTouchEvent(event);
-        return value; // 必须要返回true，否则ACTION_DOWN的后续事件不会到达
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        //Log.e(TAG + " - " + getId(), "dispatchTouchEvent");
-
-        int action = event.getAction();
-        String idName = EventUtil.getNameOfId(getId());
-
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_DOWN");
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_MOVE");
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e(TAG, idName + " - dispatchTouchEvent ACTION_UP");
-                break;
-
-            default:
-                break;
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        for (StackTraceElement element : stackTrace) {
+            String str = element.toString();
+            if (str.indexOf("longli") > 0)
+                Log.e(TAG, "======== " + element.toString());
         }
-        boolean value = super.dispatchTouchEvent(event);
-        return value;
+        return value; // 必须要返回true，否则ACTION_DOWN的后续事件不会到达
     }
 }

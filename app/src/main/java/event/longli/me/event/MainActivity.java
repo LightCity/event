@@ -1,7 +1,6 @@
 package event.longli.me.event;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;

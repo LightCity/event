@@ -12,11 +12,21 @@
         android:id="@+id/ll_outer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:layout_centerInParent="true"
         android:layout_margin="30dp"
-        android:background="#39a">
+        android:background="#1fa">
+
+        <event.longli.me.event.MyButton
+            android:id="@+id/btn_test_xx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="@string/hello_world" />
 
         <event.longli.me.event.MyLinearLayout
+            android:visibility="gone"
             android:id="@+id/ll_inner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
