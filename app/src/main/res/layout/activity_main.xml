@@ -23,6 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp"
+            android:background="#e77"
+
             android:text="@string/hello_world" />
 
         <event.longli.me.event.MyLinearLayout
