@@ -25,7 +25,7 @@ public class MyLinearLayout extends LinearLayout {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.e(TAG, getStrId() + " - OnTouchListener.onTouch");
-                boolean value = false;
+                boolean value = true;
                 return value;
             }
         });
@@ -47,30 +47,6 @@ public class MyLinearLayout extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-//        final float newRawX = event.getRawX();
-//        final float newRawY = event.getRawY();
-//
-//        int action = event.getAction();
-//        switch (action) {
-//            case MotionEvent.ACTION_MOVE:
-//                Log.e(TAG,  getStrId() + " - onTouchEvent ACTION_MOVE");
-//                float xInterval = newRawX - eventOldX;
-//                float yInterval = newRawY - eventOldY;
-//                int oldLeft = getLeft();
-//                int oldTop = getTop();
-//                int oldRight = getRight();
-//                int oldBottom = getBottom();
-//                int left    = (int) ( oldLeft + xInterval );
-//                int top     = (int) ( oldTop + yInterval );
-//                int right   = left + getWidth();
-//                int bottom  = top + getHeight();
-//                this.layout(left, top, right, bottom);
-//                break;
-//            default:
-//                break;
-//        }
-//        eventOldX = newRawX;
-//        eventOldY = newRawY;
         Log.e(TAG, getStrId() +  " - onTouchEvent " + EventUtil.eventName(event));
         boolean value = super.onTouchEvent(event);
         return value;
@@ -97,3 +73,29 @@ public class MyLinearLayout extends LinearLayout {
         }
     }
 }
+
+
+//        final float newRawX = event.getRawX();
+//        final float newRawY = event.getRawY();
+//
+//        int action = event.getAction();
+//        switch (action) {
+//            case MotionEvent.ACTION_MOVE:
+//                Log.e(TAG,  getStrId() + " - onTouchEvent ACTION_MOVE");
+//                float xInterval = newRawX - eventOldX;
+//                float yInterval = newRawY - eventOldY;
+//                int oldLeft = getLeft();
+//                int oldTop = getTop();
+//                int oldRight = getRight();
+//                int oldBottom = getBottom();
+//                int left    = (int) ( oldLeft + xInterval );
+//                int top     = (int) ( oldTop + yInterval );
+//                int right   = left + getWidth();
+//                int bottom  = top + getHeight();
+//                this.layout(left, top, right, bottom);
+//                break;
+//            default:
+//                break;
+//        }
+//        eventOldX = newRawX;
+//        eventOldY = newRawY;
